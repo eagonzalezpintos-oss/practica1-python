@@ -26,6 +26,10 @@ while intentos > 0:
 
     intento = input("Ingresá una letra: ").lower()
 
+    if len(intento) != 1 or not ('a' <= intento <= 'z'):
+        print("Entrada no válida")
+        continue
+
     if intento in letras_adivinadas:
         print("Ya intentaste esa letra")
     elif intento in palabra:
