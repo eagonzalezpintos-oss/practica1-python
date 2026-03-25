@@ -25,14 +25,21 @@ else:
     categoria_elegida = "Paises"
 
 
-palabra = random.choice(categorias[categoria_elegida])
-
+palabras_disponibles = random.sample(
+    categorias[categoria_elegida],
+    len(categorias[categoria_elegida])
+)
+seguir_jugando = "si"
+indice = 0
 
 letras_adivinadas = []
 intentos = 6
 errores = 0
 
 print("¡Bienvenido al juego del ahorcado!")
+while seguir_jugando == "si" and indice < len(palabras_disponibles):
+    palabra= palabras_disponibles[indice]
+    indice= indice + 1
 
 while intentos > 0:
     progreso = ""
@@ -71,3 +78,10 @@ while intentos > 0:
 if intentos == 0:
     print("Perdiste. La palabra era:", palabra)
     print("Puntaje = 0")
+
+if indice < len(palabras_disponibles):
+    seguir_jugando = input("¿Querés jugar otra ronda? (si/no): ").lower()
+
+    while seguir_jugando not in ["si", "no"]:
+        print("Entrada no válida")
+        seguir_jugando = input("¿Querés jugar otra ronda? (si/no): ").lower()
