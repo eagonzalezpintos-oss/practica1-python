@@ -1,8 +1,32 @@
 import random
+categorias = {
+    "programacion": ["python", "programa", "variable", "funcion", "bucle"],
+    "Equipos": ["estudiantes", "boca", "river", "san lorenzo", "independiente","racing"],
+    "Paises": ["argentina", "brasil", "uruguay", "chile","bolivia"]
+}
 
-palabras = ["python", "programa", "variable", "funcion", "bucle"]
 
-palabra = random.choice(palabras)
+print("Categorías disponibles:")
+print("1. programacion")
+print("2. Equipos")
+print("3. Paises")
+
+opcion = input("Elegí una categoría (1-3): ")
+
+while opcion not in ["1", "2", "3"]:
+    print("Entrada no válida")
+    opcion = input("Elegí una categoría (1-3): ")
+    
+if opcion == "1":
+    categoria_elegida = "programacion"
+elif opcion == "2":
+    categoria_elegida = "Equipos"
+else:
+    categoria_elegida = "Paises"
+
+
+palabra = random.choice(categorias[categoria_elegida])
+
 
 letras_adivinadas = []
 intentos = 6
