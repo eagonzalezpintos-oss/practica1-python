@@ -6,6 +6,7 @@ palabra = random.choice(palabras)
 
 letras_adivinadas = []
 intentos = 6
+errores = 0
 
 print("¡Bienvenido al juego del ahorcado!")
 
@@ -22,6 +23,8 @@ while intentos > 0:
 
     if "_" not in progreso:
         print("¡Ganaste!")
+        puntaje = 6 - errores
+        print ("Puntaje", puntaje)
         break
 
     intento = input("Ingresá una letra: ").lower()
@@ -38,7 +41,9 @@ while intentos > 0:
     else:
         letras_adivinadas.append(intento)
         intentos -= 1
+        errores = errores + 1
         print("Incorrecto. Intentos restantes:", intentos)
 
 if intentos == 0:
     print("Perdiste. La palabra era:", palabra)
+    print("Puntaje = 0")
